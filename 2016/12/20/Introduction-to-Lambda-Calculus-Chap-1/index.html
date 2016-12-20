@@ -96,7 +96,7 @@
 <meta property="og:url" content="https://lingsamuel.github.io/2016/12/20/Introduction-to-Lambda-Calculus-Chap-1/index.html">
 <meta property="og:site_name" content="Hakurei Shrine">
 <meta property="og:description" content="Lambda Calculus Notes (Introduction)">
-<meta property="og:updated_time" content="2016-12-20T11:03:39.233Z">
+<meta property="og:updated_time" content="2016-12-20T11:06:18.986Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Introduction to Lambda Calculus Chap.1">
 <meta name="twitter:description" content="Lambda Calculus Notes (Introduction)">
@@ -332,19 +332,21 @@
 <h1 id="归约-Reduction"><a href="#归约-Reduction" class="headerlink" title="归约 (Reduction)"></a>归约 (Reduction)</h1><p>表达式 E 是由一些规则组成的。</p>
 <p>称 E[P] -&gt; E[P’] 为规约，<br>  若存在规则使 P -&gt; P’。</p>
 <h1 id="标准型-Normal-Form"><a href="#标准型-Normal-Form" class="headerlink" title="标准型 (Normal Form)"></a>标准型 (Normal Form)</h1><p>称 E* 为 E 的标准型，<br>  若不存在规则能继续归约。</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>考虑表达式：<br>(2 * 4) * (3 + 4) -&gt;<br>(8) * (3 + 4) -&gt;<br>8 * (7) -&gt;<br>56<br>即为一种归约。</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>考虑表达式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(2 \* 4) \* (3 + 4) -&gt;</div><div class="line">(8) \* (3 + 4) -&gt;</div><div class="line">8 \* (7) -&gt;</div><div class="line">56</div></pre></td></tr></table></figure>
+<p>即为一种归约。</p>
 <p>符号也能归约，只要定义适当的规则，事实上数字也是一种符号。</p>
 <h1 id="组合子-Combinator"><a href="#组合子-Combinator" class="headerlink" title="组合子 (Combinator)"></a>组合子 (Combinator)</h1><p>若定义</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">append (&quot;a&quot;, &quot;b&quot;, &quot;c&quot;) (&quot;x&quot;, &quot;y&quot;, &quot;z&quot;) -&gt;</div><div class="line">(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;x&quot;, &quot;y&quot;, &quot;z&quot;)</div></pre></td></tr></table></figure>
 <p>我们就称 append 这样的函数为组合子。</p>
 <h1 id="Church-Rosser-Property"><a href="#Church-Rosser-Property" class="headerlink" title="Church-Rosser Property"></a>Church-Rosser Property</h1><p>称一个归约系统具有丘奇-罗素要素，<br>  若其标准型与子项归约顺序无关。</p>
-<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h2><p>  考虑表达式：<br>  (2 * 4) * (3 + 4) -&gt;<br>  (2 * 4) * (7) -&gt;<br>  (8) * 7 -&gt;<br>  56</p>
+<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h2><p>  考虑表达式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(2 \* 4) \* (3 + 4) -&gt;</div><div class="line">(2 \* 4) \* (7) -&gt;</div><div class="line">(8) \* 7 -&gt;</div><div class="line">56</div></pre></td></tr></table></figure></p>
 <h1 id="应用-Application"><a href="#应用-Application" class="headerlink" title="应用 (Application)"></a>应用 (Application)</h1><p>Application 是 lambda calculus 的基本运算之一。</p>
 <p>表达式 <code>F . A</code> 或 <code>F A</code> 代表将 F 看作某种运算，并将之应用(apply)到 A 上。</p>
-<p>这种运算有两种解读，F A 的运算过程，或是 F A 这个运算的结果。</p>
+<p>这种运算有两种解读，<code>F A</code> 的运算过程，或是 <code>F A</code> 这个运算的结果。</p>
 <p>它是无类型(Type-free)的，因为 <code>F F</code> 是合法的表达式。</p>
-<h1 id="抽象-Abstraction"><a href="#抽象-Abstraction" class="headerlink" title="抽象 (Abstraction)"></a>抽象 (Abstraction)</h1><p>抽象是第二个 lambda calculus 的基本运算。<br>若 M ≡ M[x] 是一个依赖于 x 的表达式，那么 \x.M[x] 等价于 x -&gt; M[x]。</p>
-<p>那么 (\x.x * x) 3 等价于 3 * 3 (= 9)，</p>
+<h1 id="抽象-Abstraction"><a href="#抽象-Abstraction" class="headerlink" title="抽象 (Abstraction)"></a>抽象 (Abstraction)</h1><p>抽象是第二个 lambda calculus 的基本运算。<br>若 <code>M ≡ M[x]</code> 是一个依赖于 x 的表达式，那么 <code>\x.M[x]</code> 等价于 <code>x -&gt; M[x]</code>。</p>
+<p>那么 <code>(\x.x \* x) 3</code> 等价于 <code>3 \* 3 (= 9)</code>，</p>
 
       
     </div>
