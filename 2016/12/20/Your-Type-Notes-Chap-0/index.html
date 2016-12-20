@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Your Type,Note," />
+  <meta name="keywords" content="Note,Your Type," />
 
 
 
@@ -96,7 +96,7 @@
 <meta property="og:url" content="https://lingsamuel.github.io/2016/12/20/Your-Type-Notes-Chap-0/index.html">
 <meta property="og:site_name" content="Hakurei Shrine">
 <meta property="og:description" content="你的类型， 0: 基本的合一">
-<meta property="og:updated_time" content="2016-12-20T11:43:26.233Z">
+<meta property="og:updated_time" content="2016-12-20T12:37:57.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Your Type Notes Chap.0">
 <meta name="twitter:description" content="你的类型， 0: 基本的合一">
@@ -329,7 +329,17 @@
         <p>你的类型， 0: 基本的合一</p>
 <a id="more"></a>
 <h1 id="你的类型"><a href="#你的类型" class="headerlink" title="你的类型"></a>你的类型</h1><p>原址: <a href="https://zhuanlan.zhihu.com/p/24181997" target="_blank" rel="external">你的类型, 0: 基本的合一</a></p>
-<h1 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h1>
+<blockquote>
+<p>作者：Belleve<br>链接：<a href="https://zhuanlan.zhihu.com/p/24181997" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/24181997</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+</blockquote>
+<h1 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h1><blockquote>
+<p>简单粗暴的开始：用 JS 实现一个 ML 类的程序语言的类型推理系统。<br>在我们这里，所有的类型属于以下形式之一：</p>
+</blockquote>
+<p>一个基础类型（Primitive）<br>一个自由变量（Slot）<br>一个复合类型（Composite），由一个构造器（ctor）和一个参数（argument）复合得到。对于 (-&gt;)、(*) 之类的二元构造器，使用 Curryize 将他变换为嵌套的 Composite。<br>所谓的合一，指的是：给出两个类型 A 和 B，找到一组变量替换，使得两者的自由变量经过替换之后可以得到一个相同的类型 C。考虑</p>
+<p>；<br>这两个类型可以合一，对应的替换是。</p>
+<p>实现合一的算法基本思路就是维护一个 slot 的映射。对于任意的类型 a 和 b，以及「当前状态」的映射 m：</p>
+<p>如果 a 和 b 都是 slot 并且 m[a] == m[b]，那么 a b 可以合一，m 不变。<br>如果 a 和 b 都是 primitive 并且相同，那么 a b 可以合一，m 不变。<br>如果 a 是 slot，可以合一，并且需要 m[a] 设置为 b；反之亦然。<br>如果 a 和 b 都是 composite，检查两者的构造器和参数是否都能合一，m 会最多被设置两次。<br>对于其他一切情况，a 和 b 不能合一。</p>
+
       
     </div>
 
@@ -352,9 +362,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Your-Type/" rel="tag"># Your Type</a>
-          
             <a href="/tags/Note/" rel="tag"># Note</a>
+          
+            <a href="/tags/Your-Type/" rel="tag"># Your Type</a>
           
         </div>
       
