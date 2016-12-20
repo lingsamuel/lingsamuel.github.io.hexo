@@ -96,7 +96,7 @@
 <meta property="og:url" content="https://lingsamuel.github.io/2016/12/20/Your-Type-Notes-Chap-0/index.html">
 <meta property="og:site_name" content="Hakurei Shrine">
 <meta property="og:description" content="你的类型， 0: 基本的合一">
-<meta property="og:updated_time" content="2016-12-20T16:03:08.863Z">
+<meta property="og:updated_time" content="2016-12-20T16:05:37.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Your Type Notes Chap.0">
 <meta name="twitter:description" content="你的类型， 0: 基本的合一">
@@ -386,7 +386,9 @@
 <p>考虑对 <code>type1</code> 进行合一替换。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">apply -&gt; (* (-&gt; a1 a2) (list a3)) (list a2)</div><div class="line">  &#123;apply -&gt; (* (-&gt; a1 a2) (list a3))&#125; 以及 &#123;apply (list a2)&#125;</div><div class="line">    &#123;&#123;apply -&gt;&#125; 以及 &#123;apply * (-&gt; a1 a2) (list a3)&#125;&#125;， &#123;list， 以及 apply a2&#125;</div><div class="line">      &#123;-&gt;， &#123;&#123;apply * (-&gt; a1 a2)&#125; 以及 &#123;apply (list a3)&#125;&#125;&#125;， &#123;list， a2 =&gt; a4&#125;</div><div class="line">        &#123;-&gt; &#123;*， &#123;apply (-&gt; a1 a2)&#125;， &#123;list， 以及 apply a3&#125;&#125;&#125;， &#123;list, a4&#125;</div><div class="line">          &#123;-&gt; &#123;*， &#123;apply (-&gt; a1) 以及 apply a2&#125;， &#123;list， a3&#125;&#125;&#125;， &#123;list， a4&#125;</div><div class="line">            &#123;-&gt; &#123;*， &#123;apply -&gt; 以及 apply a1， a2&#125;， &#123;list， a3&#125;&#125;&#125;， &#123;list， a4&#125;</div><div class="line">              &#123;-&gt; &#123;* &#123;-&gt; a3 a2&#125; &#123;list a3&#125;&#125;&#125; &#123;list a4&#125;</div><div class="line">              即 (-&gt; (* (-&gt; a3 a2) (list a3))) (list a4)</div></pre></td></tr></table></figure></p>
 <p><code>type2</code> 同理。</p>
 <hr>
-<p align="right"> <blockquote> 加括号好累哦。 —— Kisaragi Sarasa </blockquote> </p>
+<blockquote>
+<p>加括号好累哦。 —— Kisaragi Sarasa </p>
+</blockquote>
 
       
     </div>
