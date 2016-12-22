@@ -96,7 +96,7 @@
 <meta property="og:url" content="https://lingsamuel.github.io/2016/12/22/Kotlin-Tutorial-Chap-1/index.html">
 <meta property="og:site_name" content="Hakurei Shrine">
 <meta property="og:description" content="Introduction to basic Kotlin.">
-<meta property="og:updated_time" content="2016-12-22T15:24:07.301Z">
+<meta property="og:updated_time" content="2016-12-22T15:25:43.079Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kotlin Tutorial Chap.1">
 <meta name="twitter:description" content="Introduction to basic Kotlin.">
@@ -377,7 +377,7 @@
 <hr>
 <h2 id="type-check"><a href="#type-check" class="headerlink" title="type check"></a>type check</h2><p><code>if(x is Int)</code></p>
 <hr>
-<h2 id="when"><a href="#when" class="headerlink" title="when"></a>when</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">when</span> (x)&#123;</div><div class="line">	<span class="number">10</span> -&gt; print(<span class="string">"10"</span>)</div><div class="line">	<span class="string">"Sarasa"</span> -&gt; print(<span class="string">"Sarasa"</span>)</div><div class="line">	<span class="keyword">is</span> <span class="built_in">Long</span> -&gt; print(<span class="string">"Long"</span>)</div><div class="line">	!<span class="keyword">is</span> </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="when"><a href="#when" class="headerlink" title="when"></a>when</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">when</span> (x)&#123;</div><div class="line">	<span class="number">10</span> -&gt; print(<span class="string">"10"</span>)</div><div class="line">	<span class="string">"Sarasa"</span> -&gt; print(<span class="string">"Sarasa"</span>)</div><div class="line">	<span class="keyword">is</span> <span class="built_in">Long</span> -&gt; print(<span class="string">"Long"</span>)</div><div class="line">	!<span class="keyword">is</span> String -&gt; print(<span class="string">"Not String"</span>)</div><div class="line">	<span class="keyword">else</span> -&gt; print(<span class="string">"unknown"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <hr>
 <h2 id="collections-loop"><a href="#collections-loop" class="headerlink" title="collections loop"></a>collections loop</h2><p><code>for(something in collections)</code><br><code>if(something in collections)</code></p>
 <hr>
