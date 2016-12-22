@@ -96,7 +96,7 @@
 <meta property="og:url" content="https://lingsamuel.github.io/2016/12/22/Kotlin-Tutorial-Chap-1/index.html">
 <meta property="og:site_name" content="Hakurei Shrine">
 <meta property="og:description" content="Introduction to basic Kotlin.">
-<meta property="og:updated_time" content="2016-12-22T16:33:06.122Z">
+<meta property="og:updated_time" content="2016-12-22T16:45:18.133Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kotlin Tutorial Chap.1">
 <meta name="twitter:description" content="Introduction to basic Kotlin.">
@@ -328,8 +328,8 @@
       
         <p>Introduction to basic Kotlin.</p>
 <a id="more"></a>
-<h1 id="What’s-Kotlin"><a href="#What’s-Kotlin" class="headerlink" title="What’s Kotlin"></a>What’s Kotlin</h1><p>Kotlin 是 JetBrains 推出的基于 JVM 的新一代的静态类型编程语言。</p>
-<p>一大强推的 feature 是对 Java 的 100% 兼容，并且有 toJs 的工具，就像他们自己的简介一样，</p>
+<h1 id="What’s-Kotlin"><a href="#What’s-Kotlin" class="headerlink" title="What’s Kotlin"></a>What’s Kotlin</h1><p>Kotlin 是 JetBrains 推出的基于 JVM 的静态类型编程语言。</p>
+<p>一大强推的 feature 是对 Java 的 100% 兼容，并且有 toJs 工具，就像他们自己的简介一样</p>
 <blockquote>
 <p>Statically typed programming language for the JVM, Android and the browser.<br>100% interoperable with Java™</p>
 </blockquote>
@@ -357,7 +357,7 @@
 </ol>
 <h1 id="Quickstart-Basic-but-Best-Practice"><a href="#Quickstart-Basic-but-Best-Practice" class="headerlink" title="Quickstart (Basic but Best Practice)"></a>Quickstart (Basic but Best Practice)</h1><hr>
 <h2 id="Semicolon-Free"><a href="#Semicolon-Free" class="headerlink" title="Semicolon Free"></a>Semicolon Free</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a = <span class="number">1</span></div></pre></td></tr></table></figure>
-<h2 id="Package"><a href="#Package" class="headerlink" title="Package"></a>Package</h2><p>不需要严格遵循文件夹<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> kt.intro</div><div class="line"></div><div class="line"><span class="keyword">import</span> sarasa.doc</div></pre></td></tr></table></figure></p>
+<h2 id="Package"><a href="#Package" class="headerlink" title="Package"></a>Package</h2><p>不需要严格遵循文件夹<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> kt.intro.wherever</div><div class="line"></div><div class="line"><span class="keyword">import</span> sarasa.doc</div></pre></td></tr></table></figure></p>
 <h2 id="Function"><a href="#Function" class="headerlink" title="Function"></a>Function</h2><p>Unit 或可推导的表达式函数的返回值可省略，其余时候不能省略。<br>如果函数返回值是 Unit，尽可能让它纯，并且尽可能使用表达式函数。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">func</span><span class="params">(a: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> &#123; &#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">sum</span><span class="params">(a: <span class="type">Int</span>, b: <span class="type">Int</span>)</span></span> = a + b</div></pre></td></tr></table></figure></p>
 <h3 id="Default-Parameters"><a href="#Default-Parameters" class="headerlink" title="Default Parameters"></a>Default Parameters</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">(a: <span class="type">Int</span> = <span class="number">0</span>, b: <span class="type">String</span> = <span class="string">"example"</span>)</span></span> &#123; &#125;</div><div class="line"></div><div class="line">foo(b = <span class="string">"wow"</span>)</div></pre></td></tr></table></figure>
 <h2 id="Variable"><a href="#Variable" class="headerlink" title="Variable"></a>Variable</h2><p>类型后置<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> v: <span class="built_in">Int</span> = <span class="number">1</span></div><div class="line"><span class="keyword">val</span> c: <span class="built_in">Int</span> = <span class="number">1</span> <span class="comment">// const value</span></div></pre></td></tr></table></figure></p>
@@ -400,7 +400,7 @@
 <li>public function 需要文档</li>
 <li>类型前冒号后有空格 <code>name: Type</code></li>
 <li>省略 Unit 如果它是返回值</li>
-<li>lambda 和花括号间有空格，箭头附近有空格 <code>list.filter{ x -&gt; x &gt; 10 }</code></li>
+<li>lambda 和花括号间有空格，箭头附近有空格 <code>list.filter { x -&gt; x &gt; 10 }</code></li>
 </ol>
 <blockquote>
 <p>End —— Kisaragi Sarasa</p>
