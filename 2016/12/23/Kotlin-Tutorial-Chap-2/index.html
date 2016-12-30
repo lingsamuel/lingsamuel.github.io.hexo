@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Kotlin,Tutorial," />
+  <meta name="keywords" content="Kotlin,Tutorial,Variance," />
 
 
 
@@ -90,16 +90,16 @@
 
 
 
-<meta name="description" content="Broomie of Hakurei Shrine.">
+<meta name="description" content="Something about Variance">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kotlin Tutorial Chap.2">
 <meta property="og:url" content="https://lingsamuel.github.io/2016/12/23/Kotlin-Tutorial-Chap-2/index.html">
 <meta property="og:site_name" content="Hakurei Shrine">
-<meta property="og:description" content="Broomie of Hakurei Shrine.">
-<meta property="og:updated_time" content="2016-12-23T07:24:13.438Z">
+<meta property="og:description" content="Something about Variance">
+<meta property="og:updated_time" content="2016-12-30T14:45:25.620Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kotlin Tutorial Chap.2">
-<meta name="twitter:description" content="Broomie of Hakurei Shrine.">
+<meta name="twitter:description" content="Something about Variance">
 
 
 
@@ -333,7 +333,62 @@
       
 
       
-        
+        <p>Something about Variance</p>
+<a id="more"></a>
+<h1 id="Variance"><a href="#Variance" class="headerlink" title="Variance"></a>Variance</h1><p>类型构造时，构成类型的子类型性质可以被保持、反转或忽略，称作型变性质，型变(Variance)就是指依照某种构造的型变性质，确定复合类型的子类型关系。</p>
+<blockquote>
+<ul>
+<li>Covariance</li>
+</ul>
+<p>使你能够使用比原始指定的类型派生程度更大的类型。<br>你可以向 IEnumerable<derived> 类型的变量分配 IEnumerable(Of Derived)（在 Visual Basic 中为 IEnumerable<base>）的实例。</derived></p>
+<ul>
+<li>Contravariance</li>
+</ul>
+<p>使你能够使用比原始指定的类型更泛型（派生程度更小）的类型。<br>你可以向 IEnumerable<base> 类型的变量分配 IEnumerable(Of Base)（在 Visual Basic 中为 IEnumerable<derived>）的实例。</derived></p>
+<ul>
+<li>Invariance</li>
+</ul>
+<p>这意味着，你只能使用原始指定的类型；固定泛型类型参数既不是协变类型，也不是逆变类型。<br>你无法向 IEnumerable<base> 类型的变量分配 IEnumerable(Of Base)（在 Visual Basic 中为 IEnumerable<derived>）的实例，反之亦然。</derived></p>
+</blockquote>
+<p>上文来自<a href="https://msdn.microsoft.com/zh-cn/library/dd799517(v=vs.110" target="_blank" rel="external">泛型中的协变和逆变</a>.aspx)，简而言之就是协变可以使用更加特化的版本，逆变可以使用更加泛化的版本。</p>
+<h2 id="Covariant"><a href="#Covariant" class="headerlink" title="Covariant"></a>Covariant</h2><p>称协变(Covariant)为能保持子类型关系的型变性质。</p>
+<p>例如，<code>Plate&lt;Apple&gt;</code>是<code>Plate&lt;Fruit&gt;</code>的子类型（显然装苹果的盘子也是一个装了水果的盘子），也即是说，<code>Apple</code>和<code>Fruit</code>间的子类型关系（苹果也是水果）被保持了，此时<code>Plate</code>就是协变的。</p>
+<p>在 Java 里，它应该是这样的，<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Plate&lt;? extends Fruit&gt;</div></pre></td></tr></table></figure></p>
+<p>意即任意派生自<code>Fruit</code>的类型都能作类型参数，此时它是协变的。<br>在 Java 里，这个叫做<strong>上界通配符</strong>。</p>
+<h2 id="Contravariant"><a href="#Contravariant" class="headerlink" title="Contravariant"></a>Contravariant</h2><p>称逆变(Contravariant)为反转子类型关系的型变性质。</p>
+<p>例如，<code>Eat&lt;Apple&gt;</code>是<code>Eat&lt;Fruit&gt;</code>的超类。此处，<code>Eat&lt;T&gt;</code>的子类型关系与<code>T</code>相比，被反转了，这就是逆变。</p>
+<p>在 Java 里，它是这样的，<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Eat&lt;? <span class="keyword">super</span> Apple&gt;</div></pre></td></tr></table></figure></p>
+<p>意味着任何<code>Apple</code>的超类都能作类型参数，它可能是<code>Fruit</code>，或者<code>Food</code>，但必须记住，和<code>Eat</code>复合后，子类型关系被<strong>反转</strong>了。<br>在 Java 里，这个叫做<strong>下界通配符</strong>。</p>
+<h2 id="Invariant"><a href="#Invariant" class="headerlink" title="Invariant"></a>Invariant</h2><p>称不变(Invariant)为忽略子类型关系的型变性质。</p>
+<p>例如，<code>List&lt;Apple&gt;</code>和<code>List&lt;Fruit&gt;</code>之间没有什么子类型关系，此时就称之不变。</p>
+<h2 id="合理地使用"><a href="#合理地使用" class="headerlink" title="合理地使用"></a>合理地使用</h2><p>一般来说，我们应该尽量使用协变或者逆变，而不是不变。</p>
+<p>考虑不变的情形，我们有一个<code>Plate&lt;Fruit&gt;</code>，但它不能放入<code>Apple</code>，这种情形会让程序员困惑。</p>
+<p>但有时候我们需要不变来保持类型安全。</p>
+<p>设想一个数组<code>Fruit[]</code>，存在以下三种情形，</p>
+<ul>
+<li>协变： <code>Apple[]</code>也是<code>Fruit[]</code></li>
+<li>逆变： <code>Fruit[]</code>也是<code>Apple[]</code></li>
+<li>不变： 以上情形均不符合</li>
+</ul>
+<p>如果它是协变的，那么在<code>Apple[]</code>被当做<code>Fruit[]</code>后，可能会往内放入<code>Banana</code>，但这个<code>Fruit[]</code>实际上是<code>Apple[]</code>，是没法放入<code>Banana</code>的，因此协变是不安全的。</p>
+<p>如果它是逆变的，在<code>Fruit[]</code>被当做<code>Apple[]</code>时，可能会取出一个<code>Banana</code>，因为这个<code>Apple[]</code>实际上是任何水果都可能出现的<code>Fruit[]</code>，因此逆变是不安全的。</p>
+<p>不过，协变问题只对可变类型有影响，只要一个数据类型是不可变的(immutable)，它就不存在协变问题，也就是说协变是必然安全的。同理，我们可以发现，对于一个只写类型而言，逆变也是没有关系的；对只写函数而言，逆变也是无妨的。也就是说，协变存在写入问题，逆变存在读取问题。</p>
+<p>这种情况，有一个叫做 PECS 原则的通俗化描述，也就是 Producer Extends Consumer Super，即是说生产者协变，消费者逆变。生产者不接受该类型作参数只返回其，消费者不返回该参数只接受其作参数。</p>
+<p>在 Java 中，我们能在声明处使用一种叫做通配符的技术获取一个协变或者逆变的类型。这样就会导致类似<code>set</code>或者<code>get</code>出现问题。</p>
+<p>在 C# 中，我们有 <code>in</code> 和 <code>out</code> 关键字可以手动控制这种规则，但默认是不变的，这会强制让使用者考虑型变带来的结果，个人认为是更好的。</p>
+<h3 id="关于函数"><a href="#关于函数" class="headerlink" title="关于函数"></a>关于函数</h3><p>对于一个<code>Fruit-&gt;Fruit</code>的函数而言，用一个<code>Apple-&gt;Fruit</code>代替是安全的，<code>Apple-&gt;Fruit</code>用<code>Apple-&gt;Apple</code>替代也是安全的。这即是说，对函数而言，参数是逆变的，返回值是协变的。</p>
+<p>对没有函数类型的语言来说这不一定是不安全的。<br>返回值协变是安全的，例如在 Java 中，子类的方法能返回一个更特化的类型，即使子类被转为基类，因为基类的返回值更加泛化，容纳一个特化类型是允许的。<br>但是 Java 不支持参数逆变而是视作重载，这也是合理的，但应当在默认不变的基础上允许程序员让它逆变。</p>
+<p>参数协变是危险（类型不安全）的，例如，在 Java 中，一个子类的一个函数，接受一个更特化的 Apple，然后子类被转为基类，并且试图传入一个 Banana 作为参数，则会引发类型错误。</p>
+<hr>
+<h1 id="Kotlin-的解决方案"><a href="#Kotlin-的解决方案" class="headerlink" title="Kotlin 的解决方案"></a>Kotlin 的解决方案</h1><p>回到 Kotlin 上，Kotlin 有一些特殊的技术使得一些在 Java 中不可能的代码成为可能。</p>
+<h2 id="声明处型变"><a href="#声明处型变" class="headerlink" title="声明处型变"></a>声明处型变</h2><p>对于只读不写的泛型接口来说，协变安全是显然的，因此在泛型参数<code>T</code>前加关键字<code>out</code>表明它是一个 out-parameter 并且强制要求它只 return(produce) T。<code>out</code>的含义是，它只出现在 out-position，也就是返回值，也就是前面提到的 produce。<br>同理，<code>in</code>关键字就是 consume 含义。</p>
+<p>称<code>in</code>与<code>out</code>为型变注解，只有类和接口的类型参数能被修饰。</p>
+<p>事实上 C# 早就有这个东西了。</p>
+<h2 id="类型投影"><a href="#类型投影" class="headerlink" title="类型投影"></a>类型投影</h2><h3 id="使用处型变"><a href="#使用处型变" class="headerlink" title="使用处型变"></a>使用处型变</h3><p>我们也可以对符合规则的函数参数的类型参数进行注解，称其为使用处型变。<br>例如，<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">printArr</span><span class="params">(src: <span class="type">Array</span>&lt;<span class="type">out</span> <span class="type">Any</span>&gt;)</span></span>&#123; </div><div class="line">	<span class="comment">//... </span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>它能强制保证这个函数对<code>src</code>的使用符合 out 或 in 规则。<br>注意，其他参数（如果有）可以不受限制。</p>
+<h3 id="星型投影"><a href="#星型投影" class="headerlink" title="星型投影"></a>星型投影</h3><p>有时候我们对类型参数一无所知，我们便可以使用星型投影来获得一种安全的使用方式。</p>
+<p>对一个<code>interface Star&lt;out T&gt;</code>，其中<code>T</code>有上界约束<code>Upper</code>（默认是<code>Any?</code>），<code>Star&lt;*&gt;</code>代表<code>Star&lt;out Upper&gt;</code>，也就是说如果你对它的类型一无所知，你依然可以对它的上界进行安全地读取。<br>对一个<code>interface Star&lt;in T&gt;</code>，<code>Star&lt;*&gt;</code>代表<code>Star&lt;in Nothing&gt;</code>，也就是说你对类型一无所知的时候，你就无法安全地写它。<br>对一个<code>interface Star&lt;T&gt;</code>，<code>Star&lt;*&gt;</code>代表的含义根据读写情况变成上面两种情形。</p>
+
       
     </div>
 
@@ -359,6 +414,8 @@
             <a href="/tags/Kotlin/" rel="tag"># Kotlin</a>
           
             <a href="/tags/Tutorial/" rel="tag"># Tutorial</a>
+          
+            <a href="/tags/Variance/" rel="tag"># Variance</a>
           
         </div>
       
@@ -429,8 +486,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -451,7 +517,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -505,6 +571,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Variance"><span class="nav-number">1.</span> <span class="nav-text">Variance</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Covariant"><span class="nav-number">1.1.</span> <span class="nav-text">Covariant</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Contravariant"><span class="nav-number">1.2.</span> <span class="nav-text">Contravariant</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Invariant"><span class="nav-number">1.3.</span> <span class="nav-text">Invariant</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合理地使用"><span class="nav-number">1.4.</span> <span class="nav-text">合理地使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于函数"><span class="nav-number">1.4.1.</span> <span class="nav-text">关于函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Kotlin-的解决方案"><span class="nav-number">2.</span> <span class="nav-text">Kotlin 的解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#声明处型变"><span class="nav-number">2.1.</span> <span class="nav-text">声明处型变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型投影"><span class="nav-number">2.2.</span> <span class="nav-text">类型投影</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用处型变"><span class="nav-number">2.2.1.</span> <span class="nav-text">使用处型变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#星型投影"><span class="nav-number">2.2.2.</span> <span class="nav-text">星型投影</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
