@@ -96,7 +96,7 @@
 <meta property="og:url" content="https://lingsamuel.github.io/2016/12/23/Kotlin-Tutorial-Chap-2/index.html">
 <meta property="og:site_name" content="Hakurei Shrine">
 <meta property="og:description" content="Something about Variance">
-<meta property="og:updated_time" content="2016-12-30T14:45:25.620Z">
+<meta property="og:updated_time" content="2016-12-31T14:02:53.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kotlin Tutorial Chap.2">
 <meta name="twitter:description" content="Something about Variance">
@@ -350,7 +350,7 @@
 </ul>
 <p>这意味着，你只能使用原始指定的类型；固定泛型类型参数既不是协变类型，也不是逆变类型。<br>你无法向 IEnumerable<base> 类型的变量分配 IEnumerable(Of Base)（在 Visual Basic 中为 IEnumerable<derived>）的实例，反之亦然。</derived></p>
 </blockquote>
-<p>上文来自<a href="https://msdn.microsoft.com/zh-cn/library/dd799517(v=vs.110" target="_blank" rel="external">泛型中的协变和逆变</a>.aspx)，简而言之就是协变可以使用更加特化的版本，逆变可以使用更加泛化的版本。</p>
+<p>上文来自<a href="https://msdn.microsoft.com/zh-cn/library/dd799517.aspx" target="_blank" rel="external">泛型中的协变和逆变</a>，简而言之就是协变可以使用更加特化的版本，逆变可以使用更加泛化的版本。</p>
 <h2 id="Covariant"><a href="#Covariant" class="headerlink" title="Covariant"></a>Covariant</h2><p>称协变(Covariant)为能保持子类型关系的型变性质。</p>
 <p>例如，<code>Plate&lt;Apple&gt;</code>是<code>Plate&lt;Fruit&gt;</code>的子类型（显然装苹果的盘子也是一个装了水果的盘子），也即是说，<code>Apple</code>和<code>Fruit</code>间的子类型关系（苹果也是水果）被保持了，此时<code>Plate</code>就是协变的。</p>
 <p>在 Java 里，它应该是这样的，<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Plate&lt;? extends Fruit&gt;</div></pre></td></tr></table></figure></p>
