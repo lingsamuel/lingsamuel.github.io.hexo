@@ -96,7 +96,7 @@
 <meta property="og:url" content="https://lingsamuel.github.io/2016/12/23/Kotlin-Tutorial-Chap-2/index.html">
 <meta property="og:site_name" content="Hakurei Shrine">
 <meta property="og:description" content="Something about Variance">
-<meta property="og:updated_time" content="2016-12-31T14:02:53.001Z">
+<meta property="og:updated_time" content="2016-12-31T14:05:40.620Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kotlin Tutorial Chap.2">
 <meta name="twitter:description" content="Something about Variance">
@@ -377,7 +377,7 @@
 <p>在 Java 中，我们能在声明处使用一种叫做通配符的技术获取一个协变或者逆变的类型。这样就会导致类似<code>set</code>或者<code>get</code>出现问题。</p>
 <p>在 C# 中，我们有 <code>in</code> 和 <code>out</code> 关键字可以手动控制这种规则，但默认是不变的，这会强制让使用者考虑型变带来的结果，个人认为是更好的。</p>
 <h3 id="关于函数"><a href="#关于函数" class="headerlink" title="关于函数"></a>关于函数</h3><p>对于一个<code>Fruit-&gt;Fruit</code>的函数而言，用一个<code>Apple-&gt;Fruit</code>代替是安全的，<code>Apple-&gt;Fruit</code>用<code>Apple-&gt;Apple</code>替代也是安全的。这即是说，对函数而言，参数是逆变的，返回值是协变的。</p>
-<p>对没有函数类型的语言来说这不一定是不安全的。<br>返回值协变是安全的，例如在 Java 中，子类的方法能返回一个更特化的类型，即使子类被转为基类，因为基类的返回值更加泛化，容纳一个特化类型是允许的。<br>但是 Java 不支持参数逆变而是视作重载，这也是合理的，但应当在默认不变的基础上允许程序员让它逆变。</p>
+<p>返回值协变是安全的，例如在 Java 中，子类的方法能返回一个更特化的类型，即使子类被转为基类，因为基类的返回值更加泛化，容纳一个特化类型是允许的。<br>但是 Java 不支持参数逆变而是视作重载，这也是合理的，但应当在默认不变的基础上允许程序员让它逆变。</p>
 <p>参数协变是危险（类型不安全）的，例如，在 Java 中，一个子类的一个函数，接受一个更特化的 Apple，然后子类被转为基类，并且试图传入一个 Banana 作为参数，则会引发类型错误。</p>
 <hr>
 <h1 id="Kotlin-的解决方案"><a href="#Kotlin-的解决方案" class="headerlink" title="Kotlin 的解决方案"></a>Kotlin 的解决方案</h1><p>回到 Kotlin 上，Kotlin 有一些特殊的技术使得一些在 Java 中不可能的代码成为可能。</p>
