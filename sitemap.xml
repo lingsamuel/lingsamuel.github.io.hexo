@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lingsamuel.github.io/2017/01/04/Lisp-in-Kotlin/</loc>
+    
+    <lastmod>2017-01-04T10:31:49.612Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lingsamuel.github.io/2017/01/04/Introduction-to-Type-System/</loc>
     
     <lastmod>2017-01-03T17:10:35.957Z</lastmod>
