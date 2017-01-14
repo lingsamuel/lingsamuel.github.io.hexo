@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lingsamuel.github.io/"/>
-  <updated>2017-01-14T13:51:21.766Z</updated>
+  <updated>2017-01-14T18:15:43.701Z</updated>
   <id>https://lingsamuel.github.io/</id>
   
   <author>
@@ -20,9 +20,25 @@
     <link href="https://lingsamuel.github.io/2017/01/14/Make-a-Lisp-Step-0/"/>
     <id>https://lingsamuel.github.io/2017/01/14/Make-a-Lisp-Step-0/</id>
     <published>2017-01-14T09:20:36.000Z</published>
-    <updated>2017-01-14T13:51:21.766Z</updated>
+    <updated>2017-01-14T18:15:43.701Z</updated>
+    
+    <content type="html"><![CDATA[<p>Make A Lisp!</p>
+<a id="more"></a>
+<h1 id="Types"><a href="#Types" class="headerlink" title="Types"></a>Types</h1><p>我们先定义几个类型，基类是 <code>Type</code>，里面的东西可以随意填充，现在只是用作参数类型，还没有什么用。<br><code>TrueType</code> 和 <code>FalseType</code> 单独拿来作一个类型纯属个人喜好（怀念 Haskell），你也可以把他作为一个常量。<br>前 7 个类型与后面的正则一一对应。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">IntegerType</div><div class="line">NilType</div><div class="line">TrueType</div><div class="line">FalseType</div><div class="line">StringType</div><div class="line">KeywordType</div><div class="line">SymbolType</div><div class="line"></div><div class="line">ListType</div></pre></td></tr></table></figure></p>
+<h1 id="REPL"><a href="#REPL" class="headerlink" title="REPL"></a>REPL</h1><p>定义几个方法。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">read</span><span class="params">()</span></span>: String?</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">eval</span><span class="params">(code: <span class="type">String</span>?)</span></span>: Type</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">print</span><span class="params">(s: <span class="type">Type</span>)</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">rep</span><span class="params">()</span></span></div></pre></td></tr></table></figure></p>
+<p>其中，<code>rep</code> 用来调用其他三个方法。</p>
+<h1 id="Tokenizer"><a href="#Tokenizer" class="headerlink" title="Tokenizer"></a>Tokenizer</h1><p>Mal 提供了两个正则表达式来作 tokenize。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> TOKEN_REGEX = Regex(<span class="string">"""[\s,]*(~@|[\[\]&#123;&#125;()'`~^@]|"(?:\\.|[^\\"])*"|;.*|[^\s\[\]&#123;&#125;('"`,;)]*)"""</span>)</div><div class="line"></div><div class="line"><span class="keyword">val</span> PRIM_REGEX = Regex(<span class="string">"""(^-?[0-9]+$)|(^nil$)|(^true$)|(^false$)|^"(.*)"$|:(.*)|(^[^"]*$)"""</span>)</div></pre></td></tr></table></figure></p>
+<p>我们把得到的 Token 放进一个 <code>TokenReader</code> 类，比如说它实际上是一个链表之类的数据结构，（至少）能够获取当前 Token 和下一个 Token。</p>
+<p>加入几个方法，因为是 step 1，所以只支持 <code>form</code>, <code>list</code>, <code>primitive</code> 就行了。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">readForm</span><span class="params">(reader: <span class="type">Reader</span>)</span></span>: Type</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">readList</span><span class="params">(reader: <span class="type">Reader</span>)</span></span>: Type</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fun</span> <span class="title">readPrimitive</span><span class="params">(reader: <span class="type">Reader</span>)</span></span>: Type</div></pre></td></tr></table></figure></p>
+<h2 id="Form"><a href="#Form" class="headerlink" title="Form"></a>Form</h2><p><code>Form</code> 的形式（目前）很简单，只要看看当前的 token 是不是 <code>null</code>, <code>(</code>, <code>)</code> 就行了。<br>如果是 <code>null</code>，那么就结束，如果是 <code>)</code>，就抛出一个异常（因为闭括号在 <code>readList</code> 里处理了），如果是开括号，就调用 <code>readList</code>，其他情形我们直接调用 <code>readPrimitive</code>。</p>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p><code>List</code> 的形式和 <code>Form</code> 类似，我们一直读入下一个 token，如果它是 <code>null</code>，那么抛出一个异常就好了，如果是 <code>)</code>，那么这个 list 就算读取完毕了，其他情形我们直接调用 <code>readForm</code>。对于每一个结束（遇到 <code>)</code>）前的 <code>Type</code>，我们就把它加入到 <code>ListType</code> 的某种数据结构中（例如链表），作为这个 Type 的值。</p>
+<h2 id="PrimitiveType"><a href="#PrimitiveType" class="headerlink" title="PrimitiveType"></a>PrimitiveType</h2><p>我们只需要对 token 应用一下上面提到的那个正则表达式即可。这个正则表达式的结果是分组的，我们可以依次判断这些组的值是不是 <code>null</code>（而且应当只有一个不是 <code>null</code>）。不是 <code>null</code> 的情形即为这个 token 的基本类型。</p>
+<h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><p>现在我们有一个能够正确解析很多东西的小玩具了——虽然它连算数都不会。<br>如果你的实现很好的话，它已经能正确处理换行了。</p>
+]]></content>
     
     <summary type="html">
+    
+      &lt;p&gt;Make A Lisp!&lt;/p&gt;
     
     </summary>
     
@@ -100,9 +116,9 @@
     </summary>
     
     
-      <category term="Note" scheme="https://lingsamuel.github.io/tags/Note/"/>
-    
       <category term="Type System" scheme="https://lingsamuel.github.io/tags/Type-System/"/>
+    
+      <category term="Note" scheme="https://lingsamuel.github.io/tags/Note/"/>
     
   </entry>
   
@@ -532,9 +548,9 @@
     </summary>
     
     
-      <category term="Lambda Calculus" scheme="https://lingsamuel.github.io/tags/Lambda-Calculus/"/>
-    
       <category term="Note" scheme="https://lingsamuel.github.io/tags/Note/"/>
+    
+      <category term="Lambda Calculus" scheme="https://lingsamuel.github.io/tags/Lambda-Calculus/"/>
     
   </entry>
   
