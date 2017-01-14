@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lingsamuel.github.io/"/>
-  <updated>2017-01-14T18:15:43.701Z</updated>
+  <updated>2017-01-14T19:25:11.784Z</updated>
   <id>https://lingsamuel.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://lingsamuel.github.io/2017/01/14/Make-a-Lisp-Step-0/"/>
     <id>https://lingsamuel.github.io/2017/01/14/Make-a-Lisp-Step-0/</id>
     <published>2017-01-14T09:20:36.000Z</published>
-    <updated>2017-01-14T18:15:43.701Z</updated>
+    <updated>2017-01-14T19:25:11.784Z</updated>
     
     <content type="html"><![CDATA[<p>Make A Lisp!</p>
 <a id="more"></a>
@@ -54,16 +54,15 @@
     <link href="https://lingsamuel.github.io/2017/01/10/%E4%B9%9F%E8%AE%B8%E4%BD%A0%E4%BB%AC%E4%B8%8D%E7%9F%A5%E9%81%93%EF%BC%8C%E4%BD%86-Kotlin-%E4%B9%9F%E5%83%8F-Lisp/"/>
     <id>https://lingsamuel.github.io/2017/01/10/也许你们不知道，但-Kotlin-也像-Lisp/</id>
     <published>2017-01-09T17:10:07.000Z</published>
-    <updated>2017-01-09T17:11:23.766Z</updated>
+    <updated>2017-01-14T19:26:50.911Z</updated>
     
-    <content type="html"><![CDATA[<p>Kotlin gets support for S-expressions</p>
-<a id="more"></a>
+    <content type="html"><![CDATA[<p>老文重发。<br><a id="more"></a></p>
 <p><a href="https://blog.jetbrains.com/kotlin/2014/04/kotlin-gets-support-for-s-expressions/" target="_blank" rel="external">Kotlin Blog</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Kotlin gets support for S-expressions&lt;/p&gt;
+      &lt;p&gt;老文重发。&lt;br&gt;
     
     </summary>
     
