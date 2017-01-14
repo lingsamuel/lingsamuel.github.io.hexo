@@ -79,6 +79,10 @@
 
 
 
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hakurei Shrine" type="application/atom+xml" />
 
 
 
@@ -90,16 +94,16 @@
 
 
 
-<meta name="description" content="Lisp implementation in Kotlin">
+<meta name="description" content="Broomie of Hakurei Shrine.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lisp in Kotlin">
-<meta property="og:url" content="https://lingsamuel.github.io/2017/01/04/Lisp-in-Kotlin/index.html">
+<meta property="og:title" content="Make a Lisp Step 0">
+<meta property="og:url" content="https://lingsamuel.github.io/2017/01/14/Make-a-Lisp-Step-0/index.html">
 <meta property="og:site_name" content="Hakurei Shrine">
-<meta property="og:description" content="Lisp implementation in Kotlin">
-<meta property="og:updated_time" content="2017-01-04T10:34:29.615Z">
+<meta property="og:description" content="Broomie of Hakurei Shrine.">
+<meta property="og:updated_time" content="2017-01-14T13:51:21.766Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lisp in Kotlin">
-<meta name="twitter:description" content="Lisp implementation in Kotlin">
+<meta name="twitter:title" content="Make a Lisp Step 0">
+<meta name="twitter:description" content="Broomie of Hakurei Shrine.">
 
 
 
@@ -127,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="https://lingsamuel.github.io/2017/01/04/Lisp-in-Kotlin/"/>
+  <link rel="canonical" href="https://lingsamuel.github.io/2017/01/14/Make-a-Lisp-Step-0/"/>
 
 
 
 
 
-  <title> Lisp in Kotlin | Hakurei Shrine </title>
+  <title> Make a Lisp Step 0 | Hakurei Shrine </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -253,7 +257,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://lingsamuel.github.io/2017/01/04/Lisp-in-Kotlin/">
+  <link itemprop="mainEntityOfPage" href="https://lingsamuel.github.io/2017/01/14/Make-a-Lisp-Step-0/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Kisaragi Sarasa">
@@ -277,7 +281,7 @@
             
             
               
-                Lisp in Kotlin
+                Make a Lisp Step 0
               
             
           </h1>
@@ -290,8 +294,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-04T18:31:11+08:00">
-                2017-01-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-14T17:20:36+08:00">
+                2017-01-14
               </time>
             
 
@@ -306,8 +310,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2017/01/04/Lisp-in-Kotlin/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/04/Lisp-in-Kotlin/" itemprop="commentCount"></span>
+                <a href="/2017/01/14/Make-a-Lisp-Step-0/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/14/Make-a-Lisp-Step-0/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -333,9 +337,7 @@
       
 
       
-        <p>Lisp implementation in Kotlin</p>
-<a id="more"></a>
-<h1 id="Lisp"><a href="#Lisp" class="headerlink" title="Lisp"></a>Lisp</h1>
+        
       
     </div>
 
@@ -369,8 +371,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/04/Introduction-to-Type-System/" rel="next" title="Introduction to Type System">
-                <i class="fa fa-chevron-left"></i> Introduction to Type System
+              <a href="/2017/01/10/也许你们不知道，但-Kotlin-也像-Lisp/" rel="next" title="也许你们不知道，但 Kotlin 也像 Lisp">
+                <i class="fa fa-chevron-left"></i> 也许你们不知道，但 Kotlin 也像 Lisp
               </a>
             
           </div>
@@ -378,10 +380,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/09/我推荐的学习方法/" rel="prev" title="我推荐的学习方法">
-                我推荐的学习方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -435,17 +433,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -474,6 +463,13 @@
 
         </nav>
 
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">
@@ -520,22 +516,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Lisp"><span class="nav-number">1.</span> <span class="nav-text">Lisp</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>
@@ -661,9 +641,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'lingsamuel-github-io';
-      var disqus_identifier = '2017/01/04/Lisp-in-Kotlin/';
+      var disqus_identifier = '2017/01/14/Make-a-Lisp-Step-0/';
 
-      var disqus_title = "Lisp in Kotlin";
+      var disqus_title = "Make a Lisp Step 0";
 
 
       function run_disqus_script(disqus_script) {
