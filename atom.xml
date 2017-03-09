@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lingsamuel.github.io/"/>
-  <updated>2017-01-14T19:52:09.183Z</updated>
+  <updated>2017-03-09T16:05:33.551Z</updated>
   <id>https://lingsamuel.github.io/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Fancy and Trivial</title>
+    <link href="https://lingsamuel.github.io/2017/03/09/Fancy-and-Trivial/"/>
+    <id>https://lingsamuel.github.io/2017/03/09/Fancy-and-Trivial/</id>
+    <published>2017-03-09T15:59:25.000Z</published>
+    <updated>2017-03-09T16:05:33.551Z</updated>
+    
+    <content type="html"><![CDATA[<p>一种假象。</p>
+<a id="more"></a>
+<p>编程的初学者往往都会陷入一个陷阱，就是迷信“做中学”。</p>
+<p>我并不是说做中学不对，只是真正的做中学怕不是网上的什么教程能教会的。</p>
+<p>网上的教程，往往用一些很 fancy 的例子吸引新手入门，但其实这些东西都很 trivial。</p>
+<p>我可能算是走过许多弯路的了。</p>
+<p>如果有人曾经看到过我的 GitHub/GitLab，会发现曾经我在上面都是一片绿/蓝，但现在我都把这些 repo 删掉了。</p>
+<p>因为做的东西实在没有什么技术含量，都是很 trivial 的。比如什么知乎日报 Android 端、BBS、仿制的知乎。</p>
+<p>而新手正容易被这些东西吸引。</p>
+<p>现在你问我怎么入门，我可能会掏出一大叠书送给你。</p>
+<p>真正有用的东西，最后还是绕不开这些经典的教材。</p>
+<p>会<strong>简单使用</strong>用一些框架，其实是个民工都能做。</p>
+<p>要么扎扎实实从头开始，要么就<strong>深入</strong>进去。</p>
+<p>然而深入的前提是扎扎实实。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一种假象。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Life" scheme="https://lingsamuel.github.io/tags/Life/"/>
+    
+      <category term="Misc" scheme="https://lingsamuel.github.io/tags/Misc/"/>
+    
+  </entry>
   
   <entry>
     <title>Books</title>
@@ -155,9 +191,9 @@
     </summary>
     
     
-      <category term="Type System" scheme="https://lingsamuel.github.io/tags/Type-System/"/>
-    
       <category term="Note" scheme="https://lingsamuel.github.io/tags/Note/"/>
+    
+      <category term="Type System" scheme="https://lingsamuel.github.io/tags/Type-System/"/>
     
   </entry>
   
@@ -218,10 +254,11 @@
     <link href="https://lingsamuel.github.io/2016/12/23/Kotlin-Tutorial-Chap-2/"/>
     <id>https://lingsamuel.github.io/2016/12/23/Kotlin-Tutorial-Chap-2/</id>
     <published>2016-12-23T07:23:58.000Z</published>
-    <updated>2016-12-31T14:05:40.620Z</updated>
+    <updated>2017-03-09T15:58:22.435Z</updated>
     
     <content type="html"><![CDATA[<p>Something about Variance</p>
 <a id="more"></a>
+<p>此文错误较多，请勿继续参考。</p>
 <h1 id="Variance"><a href="#Variance" class="headerlink" title="Variance"></a>Variance</h1><p>类型构造时，构成类型的子类型性质可以被保持、反转或忽略，称作型变性质，型变(Variance)就是指依照某种构造的型变性质，确定复合类型的子类型关系。</p>
 <blockquote>
 <ul>
@@ -587,9 +624,9 @@
     </summary>
     
     
-      <category term="Note" scheme="https://lingsamuel.github.io/tags/Note/"/>
-    
       <category term="Lambda Calculus" scheme="https://lingsamuel.github.io/tags/Lambda-Calculus/"/>
+    
+      <category term="Note" scheme="https://lingsamuel.github.io/tags/Note/"/>
     
   </entry>
   

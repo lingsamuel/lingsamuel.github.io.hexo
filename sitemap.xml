@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lingsamuel.github.io/2017/03/09/Fancy-and-Trivial/</loc>
+    
+    <lastmod>2017-03-09T16:05:33.551Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://lingsamuel.github.io/2016/12/23/Kotlin-Tutorial-Chap-2/</loc>
+    
+    <lastmod>2017-03-09T15:58:22.435Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://lingsamuel.github.io/about/index.html</loc>
     
-    <lastmod>2017-01-15T15:03:21.091Z</lastmod>
+    <lastmod>2017-01-15T15:44:03.094Z</lastmod>
     
   </url>
   
@@ -61,13 +75,6 @@
     <loc>https://lingsamuel.github.io/2017/01/04/Projects-in-Winter-Vacation/</loc>
     
     <lastmod>2017-01-03T17:03:42.568Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://lingsamuel.github.io/2016/12/23/Kotlin-Tutorial-Chap-2/</loc>
-    
-    <lastmod>2016-12-31T14:05:40.620Z</lastmod>
     
   </url>
   
