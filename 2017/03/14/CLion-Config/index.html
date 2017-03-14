@@ -1,0 +1,755 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|YaHei Consolas Hybrid:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Backup," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hakurei Shrine" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="先上一张 IDE 九宫格，我做的。
+面向一些小白，我不想再看到 devcpp 之类的玩意儿了。正好自己 Windows 下的环境被@Colliot给弄崩了，今晚重装的时候顺便就写这篇文章好了。重点：如果你真的真的是纯纯的萌新，我还是建议你用记事本之类的东西写一段时间，前期不要太过依赖静态分析。至少，基本语法得掌握吧。
+如果你想配置 VS，请转到孙明琦的这个回答：如何配置 VS。
+但我个人觉得，如果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CLion Config">
+<meta property="og:url" content="https://lingsamuel.github.io/2017/03/14/CLion-Config/index.html">
+<meta property="og:site_name" content="Hakurei Shrine">
+<meta property="og:description" content="先上一张 IDE 九宫格，我做的。
+面向一些小白，我不想再看到 devcpp 之类的玩意儿了。正好自己 Windows 下的环境被@Colliot给弄崩了，今晚重装的时候顺便就写这篇文章好了。重点：如果你真的真的是纯纯的萌新，我还是建议你用记事本之类的东西写一段时间，前期不要太过依赖静态分析。至少，基本语法得掌握吧。
+如果你想配置 VS，请转到孙明琦的这个回答：如何配置 VS。
+但我个人觉得，如果">
+<meta property="og:updated_time" content="2017-03-14T04:45:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CLion Config">
+<meta name="twitter:description" content="先上一张 IDE 九宫格，我做的。
+面向一些小白，我不想再看到 devcpp 之类的玩意儿了。正好自己 Windows 下的环境被@Colliot给弄崩了，今晚重装的时候顺便就写这篇文章好了。重点：如果你真的真的是纯纯的萌新，我还是建议你用记事本之类的东西写一段时间，前期不要太过依赖静态分析。至少，基本语法得掌握吧。
+如果你想配置 VS，请转到孙明琦的这个回答：如何配置 VS。
+但我个人觉得，如果">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lingsamuel.github.io/2017/03/14/CLion-Config/"/>
+
+
+
+
+
+  <title> CLion Config | Hakurei Shrine </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-89095899-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hakurei Shrine</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">What a Shame.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://lingsamuel.github.io/2017/03/14/CLion-Config/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Kisaragi Sarasa">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hakurei Shrine">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Hakurei Shrine" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CLion Config
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-14T12:43:50+08:00">
+                2017-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2017/03/14/CLion-Config/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/14/CLion-Config/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>先上一张 IDE 九宫格，我做的。</p>
+<p>面向一些小白，我不想再看到 devcpp 之类的玩意儿了。正好自己 Windows 下的环境被@Colliot给弄崩了，今晚重装的时候顺便就写这篇文章好了。<br>重点：如果你真的真的是纯纯的萌新，我还是建议你用记事本之类的东西写一段时间，前期不要太过依赖静态分析。至少，基本语法得掌握吧。</p>
+<p>如果你想配置 VS，请转到孙明琦的这个回答：如何配置 VS。</p>
+<p>但我个人觉得，如果想尽量简单地配置一个能用的IDE，而无视那些七七八八的功能，JB系的IDE是最好的——除了全英文以外。</p>
+<p>PS：JB系的IDE学生优惠：<a href="https://www.jetbrains.com/student/，我用" target="_blank" rel="external">https://www.jetbrains.com/student/，我用</a> .edu.cn 的邮箱，不费什么力气就拿到了授权。当然毕业后不应该继续使用。</p>
+<p>当然英语也不应该成为一个合格的程序员的障碍，如果你觉得是，请尽量阅读靠谱的中文化书籍，例如轮子哥审校的 C++ Primer，这类书籍的特点是名词翻译会给出原文，然后把这些名词记录下来，做一个词典。</p>
+<p>JetBrains 系的 IDE 不仅跨平台，而且长得都极相似，配置也可以互相导入（当然必须是共有的配置），而且没什么学习难度，可以很快上手。本文会以 CLion 为例，作一些简单的介绍——其实我觉得没有什么必要，但是有一些学弟学妹用 devcpp 问一些很奇怪的问题，缩进什么的也很令人恼火，我还是写一写吧。</p>
+<p>CLion</p>
+<p>下载：CLion</p>
+<p>安装：照着指引装，这不会也要人教吧？看标题，本文写的是配置而不是教你怎么用 Windows。</p>
+<p>环境：mingw-w64，安装选项：Version 选最新的， Architecture 选 x86_64，Threads 选 posix，Exception 选 seh，Build revision 选 1，为什么我并不想解释，想知道的可以自己去查，因为本文是讲 CLion 配置的。装好后，将 bin 目录加入环境变量。如果你的电脑甚至不是64位的，我建议你不要使用任何 IDE。</p>
+<p>配置：点开 File-Settings，下面的配置默认你在这里执行。</p>
+<p>设定 Toolchain：</p>
+<p>导入导出配置：</p>
+<p>File 选项卡里自己找。</p>
+<p>更改配色：</p>
+<p>选一个容易修改的配色，点Save As，保存为可编辑的主题，然后就能开始自定义配色了。</p>
+<p>General 选项：</p>
+<p>可以定义一些规则，在其他设置中可以选继承自它们。</p>
+<p>Code Style 配置：</p>
+<p>解决神教之争。</p>
+<p>Keymap：</p>
+<p>我就提几个快捷键，Ctrl + Alt + L，默认是用来格式化代码的，另一个是按住 Ctrl 键加鼠标单击，你可以跳转比如函数定义、变量定义、函数使用、变量使用等等地方，主要看使用场景。Ctrl + Alt + 左右箭头可以跳转到上一处/下一处光标所在的地方，可以在使用前一个快捷键后快速回到原位。Double Shift，可以在工程中搜索你想要的东西。</p>
+<p>其他快捷键，可以在Keymap中查看修改，菜单中有的，一般会附上快捷键。另外有插件可以提示你使用快捷键——Key promoter，它的作用是在你用鼠标完成一个有绑定快捷键的操作时，提示你快捷键是什么。</p>
+<p>在这里搜索安装：</p>
+<p>基本使用：</p>
+<p>编码：</p>
+<p>右下角，默认 UTF-8（可以设置）。假如你用了其他编码比如 GBK，CLion 会假定是 UTF-8 来打开，自然中文之类的可能乱码，此时你选择其他编码会有选项问你是要转换还是重新载入，应该先选择重新载入成 GBK，再转换成 UTF-8。当然你要是愿意用 GBK 我没意见。</p>
+<p>布局：</p>
+<p>所有标签都是可以拖动的。我只介绍几个常用的标签——Project Structure Terminal Debug。</p>
+<p>一个是文件树，一个是结构树，一个是终端。</p>
+<p>可以用 Terminal 窗口左上角的加号来打开新的 Terminal，所在目录是当前 Project 的目录，红叉用来关闭当前 Terminal，把标签折叠并没有关闭这个 Terminal。</p>
+<p>另外看到左下的 Favorite 了吗，这个标签和左上的 Project 标签可以同时开启，一般我会把 Structure 拖到这里来，这样就能同时浏览。</p>
+<p>PS：如果你在安装过程中遇到报错说“请求的操作需要提升”，请管理员权限运行。</p>
+<p>Debug：</p>
+<p>Shift + F9 启动 Debug，CMakeLists 没有好好写的话，需要指定 Executable。</p>
+<p>断点设置：</p>
+<p>行号右边一点单击一下就能设置断点，然后在 Debug 模式下运行，会在断点处停下。</p>
+<p>Debug 标签又分两个标签，一个是 Debugger，一个是 Console，顾名思义。</p>
+<p>红框的部分是如何越过这个断点，鼠标移上去有提示，最左下角也会有一行小小的提示，这个提示不限于 Debug。常用的有 Step Over、Step Into、Step Out，如果想继续运行直到下个断点，点左边那个绿色的箭头。Stop 按钮再往下有一个 View Breakpoints，可以查看断点并进行一些高级设置，不在本文讨论范围内。</p>
+<p>总之，CLion 有这么多按钮，你每个都看一看，差不多就能满足大部分需求，有其他的需要，例如语言支持，会有强大的插件库帮你解决（并且还有智能提示你安装），还有一些常见的设置上的问题，也会有智能提示——当然虽然智能提示大部分时间是能相信的，但是你们遇到问题也要自己判断，不要一味地依赖于 IDE。</p>
+<p>提升生活质量的用法：</p>
+<p>Live Template</p>
+<p>Template Text 下面有一个使用场景的设定，对于语言有一些了解的可以正确设定——至少需要了解 Declaration/Statement/Expression 的区别。</p>
+<p>$END$ 变量标明输入完成后光标所在的位置。变量输入可以有默认值，也可以有单处输入，多处拷贝的效果，C++的 for 是有代表性的例子。</p>
+<p>正确设定后，可以作为自定义的补全使用。例如输入 hw 补全出一整句 Hello World 什么的。</p>
+<p>Applicable 乱设定的后果：</p>
+<p>例如应该输入一个变量的地方补全出一整句 Hello World，正确设定的情形下不会出现在补全列表。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Backup/" rel="tag"># Backup</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/14/Why-Brainfuck-Rocks/" rel="next" title="Why Brainfuck Rocks">
+                <i class="fa fa-chevron-left"></i> Why Brainfuck Rocks
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/14/God/" rel="prev" title="God">
+                God <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Kisaragi Sarasa" />
+          <p class="site-author-name" itemprop="name">Kisaragi Sarasa</p>
+          <p class="site-description motion-element" itemprop="description">Broomie of Hakurei Shrine.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lingsamuel" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://yejingchen.github.io" title="PrincessSweet" target="_blank">PrincessSweet</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://zccz14.com/" title="zccz14" target="_blank">zccz14</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kisaragi Sarasa</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'lingsamuel-github-io';
+      var disqus_identifier = '2017/03/14/CLion-Config/';
+
+      var disqus_title = "CLion Config";
+
+
+      function run_disqus_script(disqus_script) {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+
+      
+        var disqus_config = function () {
+            this.page.url = disqus_url;
+            this.page.identifier = disqus_identifier;
+            this.page.title = disqus_title;
+        };
+        run_disqus_script('embed.js');
+      
+
+    </script>
+  
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
