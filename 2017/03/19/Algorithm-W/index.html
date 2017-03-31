@@ -94,23 +94,20 @@
 
 <meta name="description" content="(译) Algorithm W Step By Step原作者 Martin Grabmüller
 代码注释/其他语言转写将在未来补充（也有可能永远不补充）。
-导读在这篇文章里，我们会用 Haskell 完整地实现用于 Hindley-Milner 多态类型推断(Hindley-Milner polymorphic type inference)的经典算法： W。
-1. 简介类型推断是一件很棘手的">
+导读在这篇文章里，我们会用 Haskell 完整地实现用于 Hindley-Milner 多态类型推断(Hindley-Milner polymorphic type inference)的经典算法： W。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Algorithm W">
 <meta property="og:url" content="https://lingsamuel.github.io/2017/03/19/Algorithm-W/index.html">
 <meta property="og:site_name" content="Hakurei Shrine">
 <meta property="og:description" content="(译) Algorithm W Step By Step原作者 Martin Grabmüller
 代码注释/其他语言转写将在未来补充（也有可能永远不补充）。
-导读在这篇文章里，我们会用 Haskell 完整地实现用于 Hindley-Milner 多态类型推断(Hindley-Milner polymorphic type inference)的经典算法： W。
-1. 简介类型推断是一件很棘手的">
-<meta property="og:updated_time" content="2017-03-31T17:01:12.809Z">
+导读在这篇文章里，我们会用 Haskell 完整地实现用于 Hindley-Milner 多态类型推断(Hindley-Milner polymorphic type inference)的经典算法： W。">
+<meta property="og:updated_time" content="2017-03-31T17:02:45.988Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithm W">
 <meta name="twitter:description" content="(译) Algorithm W Step By Step原作者 Martin Grabmüller
 代码注释/其他语言转写将在未来补充（也有可能永远不补充）。
-导读在这篇文章里，我们会用 Haskell 完整地实现用于 Hindley-Milner 多态类型推断(Hindley-Milner polymorphic type inference)的经典算法： W。
-1. 简介类型推断是一件很棘手的">
+导读在这篇文章里，我们会用 Haskell 完整地实现用于 Hindley-Milner 多态类型推断(Hindley-Milner polymorphic type inference)的经典算法： W。">
 
 
 
@@ -357,6 +354,7 @@
         <h1 id="译-Algorithm-W-Step-By-Step"><a href="#译-Algorithm-W-Step-By-Step" class="headerlink" title="(译) Algorithm W Step By Step"></a>(译) Algorithm W Step By Step</h1><p>原作者 Martin Grabmüller</p>
 <p>代码注释/其他语言转写将在未来补充（也有可能永远不补充）。</p>
 <h3 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h3><p>在这篇文章里，我们会用 Haskell 完整地实现用于 Hindley-Milner 多态类型推断(Hindley-Milner polymorphic type inference)的经典算法： W。</p>
+<a id="more"></a>
 <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>类型推断是一件很棘手的事情，也很难入门。因为大多数相关资料都是关于更加高深的话题的，例如 rank-N polymorphism，predicative/impredicative type systems，universal and existential types 等。我已经通过实际解决问题学到了一点东西，因此我决定写一篇关于类型推导的基础教程——实现一个最基础的类型推断算法，用于基本的类型检查（例如 ML 或者 Haskell）。</p>
 <p>这里研究的类型推导算法是由 Milner 提出的 Algorithm W。[1]</p>
 <p>有关此算法的变种、拓展或者更多信息，请参阅[2]。</p>

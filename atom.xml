@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lingsamuel.github.io/"/>
-  <updated>2017-03-31T17:01:12.809Z</updated>
+  <updated>2017-03-31T17:02:45.988Z</updated>
   <id>https://lingsamuel.github.io/</id>
   
   <author>
@@ -20,11 +20,12 @@
     <link href="https://lingsamuel.github.io/2017/03/19/Algorithm-W/"/>
     <id>https://lingsamuel.github.io/2017/03/19/Algorithm-W/</id>
     <published>2017-03-19T09:07:50.000Z</published>
-    <updated>2017-03-31T17:01:12.809Z</updated>
+    <updated>2017-03-31T17:02:45.988Z</updated>
     
     <content type="html"><![CDATA[<h1 id="译-Algorithm-W-Step-By-Step"><a href="#译-Algorithm-W-Step-By-Step" class="headerlink" title="(译) Algorithm W Step By Step"></a>(译) Algorithm W Step By Step</h1><p>原作者 Martin Grabmüller</p>
 <p>代码注释/其他语言转写将在未来补充（也有可能永远不补充）。</p>
 <h3 id="导读"><a href="#导读" class="headerlink" title="导读"></a>导读</h3><p>在这篇文章里，我们会用 Haskell 完整地实现用于 Hindley-Milner 多态类型推断(Hindley-Milner polymorphic type inference)的经典算法： W。</p>
+<a id="more"></a>
 <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>类型推断是一件很棘手的事情，也很难入门。因为大多数相关资料都是关于更加高深的话题的，例如 rank-N polymorphism，predicative/impredicative type systems，universal and existential types 等。我已经通过实际解决问题学到了一点东西，因此我决定写一篇关于类型推导的基础教程——实现一个最基础的类型推断算法，用于基本的类型检查（例如 ML 或者 Haskell）。</p>
 <p>这里研究的类型推导算法是由 Milner 提出的 Algorithm W。[1]</p>
 <p>有关此算法的变种、拓展或者更多信息，请参阅[2]。</p>
@@ -77,7 +78,9 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;译-Algorithm-W-Step-By-Step&quot;&gt;&lt;a href=&quot;#译-Algorithm-W-Step-By-Step&quot; class=&quot;headerlink&quot; title=&quot;(译) Algorithm W Step By Step&quot;&gt;&lt;/a&gt;(译) Al
+      &lt;h1 id=&quot;译-Algorithm-W-Step-By-Step&quot;&gt;&lt;a href=&quot;#译-Algorithm-W-Step-By-Step&quot; class=&quot;headerlink&quot; title=&quot;(译) Algorithm W Step By Step&quot;&gt;&lt;/a&gt;(译) Algorithm W Step By Step&lt;/h1&gt;&lt;p&gt;原作者 Martin Grabmüller&lt;/p&gt;
+&lt;p&gt;代码注释/其他语言转写将在未来补充（也有可能永远不补充）。&lt;/p&gt;
+&lt;h3 id=&quot;导读&quot;&gt;&lt;a href=&quot;#导读&quot; class=&quot;headerlink&quot; title=&quot;导读&quot;&gt;&lt;/a&gt;导读&lt;/h3&gt;&lt;p&gt;在这篇文章里，我们会用 Haskell 完整地实现用于 Hindley-Milner 多态类型推断(Hindley-Milner polymorphic type inference)的经典算法： W。&lt;/p&gt;
     
     </summary>
     
@@ -726,9 +729,9 @@
     </summary>
     
     
-      <category term="Lambda Calculus" scheme="https://lingsamuel.github.io/tags/Lambda-Calculus/"/>
-    
       <category term="Note" scheme="https://lingsamuel.github.io/tags/Note/"/>
+    
+      <category term="Lambda Calculus" scheme="https://lingsamuel.github.io/tags/Lambda-Calculus/"/>
     
   </entry>
   
