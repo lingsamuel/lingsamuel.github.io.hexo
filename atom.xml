@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lingsamuel.github.io/"/>
-  <updated>2018-07-28T02:43:56.432Z</updated>
+  <updated>2018-07-30T07:52:46.045Z</updated>
   <id>https://lingsamuel.github.io/</id>
   
   <author>
@@ -16,16 +16,40 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Eternal Card Game——桌游电子化的成功尝试</title>
+    <link href="https://lingsamuel.github.io/2018/07/30/Eternal-Card-Game-A-Successful-Example-of-the-Digitization-of-Tabletop-Game/"/>
+    <id>https://lingsamuel.github.io/2018/07/30/Eternal-Card-Game-A-Successful-Example-of-the-Digitization-of-Tabletop-Game/</id>
+    <published>2018-07-30T07:47:52.000Z</published>
+    <updated>2018-07-30T07:52:46.045Z</updated>
+    
+    <content type="html"><![CDATA[<p>桌游电子化，绝非把它照搬上电脑而已。</p>
+<a id="more"></a>
+<p>标题其实是错的。Eternal Card Game 从来就不是一个桌游，但这并不妨碍我讲讲对于这个话题的看法，毕竟我们都知道 ECG 脱胎于万智牌，而万智牌的电子化，都不那么成功。</p>
+<h1 id="复制，还是改良？"><a href="#复制，还是改良？" class="headerlink" title="复制，还是改良？"></a>复制，还是改良？</h1><h1 id="只是画面而已？"><a href="#只是画面而已？" class="headerlink" title="只是画面而已？"></a>只是画面而已？</h1><h1 id="电子游戏的优势"><a href="#电子游戏的优势" class="headerlink" title="电子游戏的优势"></a>电子游戏的优势</h1><h1 id="电子游戏所特有的那些"><a href="#电子游戏所特有的那些" class="headerlink" title="电子游戏所特有的那些"></a>电子游戏所特有的那些</h1><h1 id="如何才是成功？"><a href="#如何才是成功？" class="headerlink" title="如何才是成功？"></a>如何才是成功？</h1><h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;桌游电子化，绝非把它照搬上电脑而已。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="游戏设计与评测" scheme="https://lingsamuel.github.io/categories/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E8%AF%84%E6%B5%8B/"/>
+    
+    
+      <category term="游戏设计" scheme="https://lingsamuel.github.io/tags/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>边境，塔楼和别墅——围攻的地图设计</title>
     <link href="https://lingsamuel.github.io/2018/07/28/Border-Tower-and-Villa-Map-Design-for-Siege/"/>
     <id>https://lingsamuel.github.io/2018/07/28/Border-Tower-and-Villa-Map-Design-for-Siege/</id>
     <published>2018-07-28T02:37:49.000Z</published>
-    <updated>2018-07-28T02:43:56.432Z</updated>
+    <updated>2018-07-30T07:50:28.907Z</updated>
     
     <content type="html"><![CDATA[<p>边境，塔楼和别墅，分别代表了围攻地图设计的成功，失败与未来。</p>
 <a id="more"></a>
-<p>（垂直进攻和战术选择）<br>（buffer room）</p>
-<p>（赫里福的问题）<br>（俱乐部的修改）<br>未来部分纯属推测，需要观察未来的育碧更新进行修正。</p>
+<h1 id="垂直进攻和战术选择"><a href="#垂直进攻和战术选择" class="headerlink" title="垂直进攻和战术选择"></a>垂直进攻和战术选择</h1><h1 id="Buffer-Room"><a href="#Buffer-Room" class="headerlink" title="Buffer Room"></a>Buffer Room</h1><h1 id="游戏节奏"><a href="#游戏节奏" class="headerlink" title="游戏节奏"></a>游戏节奏</h1><h1 id="赫里福的问题"><a href="#赫里福的问题" class="headerlink" title="赫里福的问题"></a>赫里福的问题</h1><h1 id="俱乐部的修改"><a href="#俱乐部的修改" class="headerlink" title="俱乐部的修改"></a>俱乐部的修改</h1><h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>未来部分纯属推测，需要观察未来的育碧更新进行修正。</p>
 ]]></content>
     
     <summary type="html">
@@ -300,6 +324,10 @@
     
     </summary>
     
+      <category term="游戏设计与评测" scheme="https://lingsamuel.github.io/categories/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E8%AF%84%E6%B5%8B/"/>
+    
+    
+      <category term="游戏设计" scheme="https://lingsamuel.github.io/tags/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
