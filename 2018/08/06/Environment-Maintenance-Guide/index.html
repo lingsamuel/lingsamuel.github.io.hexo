@@ -118,7 +118,7 @@
 <meta property="og:description" content="前略，天国的 SSD。
 又要重装系统了，数据又丢了，设置又没了，痛苦。我决心要弄个什么东西来做同步。
 头疼的是配置都是小问题，但是丢数据是真的难过。">
-<meta property="og:updated_time" content="2018-08-07T23:43:32.552Z">
+<meta property="og:updated_time" content="2018-08-10T08:38:42.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Environment Maintenance Guide">
 <meta name="twitter:description" content="前略，天国的 SSD。
@@ -391,7 +391,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-08 07:43:32" itemprop="dateModified" datetime="2018-08-08T07:43:32+08:00">2018-08-08</time>
+                <time title="修改时间：2018-08-10 16:38:42" itemprop="dateModified" datetime="2018-08-10T16:38:42+08:00">2018-08-10</time>
               
             
           </span>
@@ -448,7 +448,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.4k</span>
+                <span title="本文字数">1.5k</span>
               
 
               
@@ -522,8 +522,9 @@
 <p>但是 config 还是可以备份一下的，主要是配置了代理设置。</p>
 <h4 id="git-config"><a href="#git-config" class="headerlink" title="git.config"></a>git.config</h4><p>全局的 {UserDir}\ .gitconfig 和 {UserDir}\ .gitignore 配置。</p>
 <h4 id="同步方式"><a href="#同步方式" class="headerlink" title="同步方式"></a>同步方式</h4><p>配置一般不是很大，弄了个 GitHub Private Repo 来存。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> $(cat sync-files.txt); <span class="keyword">do</span></div><div class="line">    cp <span class="variable">$i</span> .</div><div class="line"><span class="keyword">done</span></div><div class="line"></div><div class="line">now=$(date)</div><div class="line"></div><div class="line">git add .</div><div class="line">git commit -m <span class="string">"Sync at <span class="variable">$now</span>"</span></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
-<p>然后在 repo 目录下建一个 sync-files.txt，里面存路径就成了。需要注意这个 txt 得是 LF 的。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">cat sync-files.txt | <span class="keyword">while</span> <span class="built_in">read</span> -r i; <span class="keyword">do</span></div><div class="line">    cp <span class="string">"<span class="variable">$i</span>"</span> .</div><div class="line"><span class="keyword">done</span></div><div class="line"></div><div class="line">now=$(date)</div><div class="line"></div><div class="line">git add .</div><div class="line">git commit -m <span class="string">"Sync at <span class="variable">$now</span>"</span></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+<p>然后在 repo 目录下建一个 sync-files.txt，里面存路径就成了。需要注意这个 txt 得是 LF 的，最后一行还得有个换行。</p>
+<p>就是没法自动检测 delete，不过问题不大。</p>
 <h3 id="同步数据"><a href="#同步数据" class="headerlink" title="同步数据"></a>同步数据</h3><p>数据同步比较头疼，因为太大了，放 Git 显然不合适。OneDrive 和 GoogleDrive 也许是个更好的选择，一些不怎么变的数据甚至可以放网盘。</p>
 <h4 id="Manic-Time-database"><a href="#Manic-Time-database" class="headerlink" title="Manic Time database"></a>Manic Time database</h4><p>需要手动导出，可以自己建服务器，但是太麻烦了。</p>
 
