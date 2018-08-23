@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lingsamuel.github.io/"/>
-  <updated>2018-08-10T08:38:42.556Z</updated>
+  <updated>2018-08-23T01:16:54.197Z</updated>
   <id>https://lingsamuel.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://lingsamuel.github.io/2018/08/06/Environment-Maintenance-Guide/"/>
     <id>https://lingsamuel.github.io/2018/08/06/Environment-Maintenance-Guide/</id>
     <published>2018-08-06T11:48:51.000Z</published>
-    <updated>2018-08-10T08:38:42.556Z</updated>
+    <updated>2018-08-23T01:16:54.197Z</updated>
     
     <content type="html"><![CDATA[<p>前略，天国的 SSD。</p>
 <p>又要重装系统了，数据又丢了，设置又没了，痛苦。我决心要弄个什么东西来做同步。</p>
@@ -62,8 +62,23 @@
 <p>但是 config 还是可以备份一下的，主要是配置了代理设置。</p>
 <h4 id="git-config"><a href="#git-config" class="headerlink" title="git.config"></a>git.config</h4><p>全局的 {UserDir}\ .gitconfig 和 {UserDir}\ .gitignore 配置。</p>
 <h4 id="同步方式"><a href="#同步方式" class="headerlink" title="同步方式"></a>同步方式</h4><p>配置一般不是很大，弄了个 GitHub Private Repo 来存。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">cat sync-files.txt | <span class="keyword">while</span> <span class="built_in">read</span> -r i; <span class="keyword">do</span></div><div class="line">    cp <span class="string">"<span class="variable">$i</span>"</span> .</div><div class="line"><span class="keyword">done</span></div><div class="line"></div><div class="line">now=$(date)</div><div class="line"></div><div class="line">git add .</div><div class="line">git commit -m <span class="string">"Sync at <span class="variable">$now</span>"</span></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
-<p>然后在 repo 目录下建一个 sync-files.txt，里面存路径就成了。需要注意这个 txt 得是 LF 的，最后一行还得有个换行。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/sh</span></div><div class="line"></div><div class="line">cat linux/sync-files.txt | <span class="keyword">while</span> <span class="built_in">read</span> -r i; <span class="keyword">do</span></div><div class="line">    file=`basename <span class="string">"<span class="variable">$i</span>"</span>`</div><div class="line">    dir=linux/`dirname <span class="string">"<span class="variable">$i</span>"</span>`</div><div class="line">    mkdir -p <span class="string">"<span class="variable">$dir</span>"</span></div><div class="line">    cp <span class="string">"<span class="variable">$i</span>"</span> <span class="string">"<span class="variable">$dir</span>"</span></div><div class="line"><span class="keyword">done</span></div><div class="line"></div><div class="line">now=$(date)</div><div class="line"></div><div class="line">git add .</div><div class="line">git commit -m <span class="string">"Sync at <span class="variable">$now</span>"</span></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+<p>目录结构如下：</p>
+<ul>
+<li>SetttingsSync<ul>
+<li>Linux<ul>
+<li>sync-files.txt</li>
+</ul>
+</li>
+<li>Windows<ul>
+<li>sync-files.txt</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>脚本里的 <code>linux</code> 可以改成 <code>windows</code> 啥的，随你喜欢。</p>
+<p>然后往 sync-files.txt 里面存路径就成了。需要注意这个 txt 得是 LF 的，最后一行还得有个换行。</p>
 <p>就是没法自动检测 delete，不过问题不大。</p>
 <h3 id="同步数据"><a href="#同步数据" class="headerlink" title="同步数据"></a>同步数据</h3><p>数据同步比较头疼，因为太大了，放 Git 显然不合适。OneDrive 和 GoogleDrive 也许是个更好的选择，一些不怎么变的数据甚至可以放网盘。</p>
 <h4 id="Manic-Time-database"><a href="#Manic-Time-database" class="headerlink" title="Manic Time database"></a>Manic Time database</h4><p>需要手动导出，可以自己建服务器，但是太麻烦了。</p>
